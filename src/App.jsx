@@ -25,7 +25,7 @@ function App() {
       }
     })
 
-    const url = 'http://bohorquez.xyz/api/apiBanco.php';
+    const url = 'https://universidad.juanestebanvalencia.com.co';
 
     const data2 = {
       function_name: 'consulta_aprobacion',
