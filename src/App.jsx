@@ -29,7 +29,7 @@ function App() {
       }
     })
 
-    const url = 'https://universidad.juanestebanvalencia.com.co';
+    const url = 'http://bohorquez.xyz/api/apiBanco.php';
 
     const data2 = {
       function_name: 'consulta_aprobacion',
@@ -38,18 +38,15 @@ function App() {
 
     const response = await fetch(url, {
       method: "POST",
-      mode: "cors",
-      cache: "no-cache",
-      credentials: "same-origin",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data2),
     });
     
-    const res = await response.json();
+    const dataRes = await response.json();
 
-    const modalMessage = res.response === 1 ? 'Credito Aprobado' : 'Credito Denegado';
+    const modalMessage = dataRes.response === 1 ? 'Credito Aprobado' : 'Credito Denegado';
     setModal(modalMessage);
     setOpen(true);
 
@@ -242,8 +239,8 @@ function App() {
             </div>
           </div>
         </div>
-        <div>
-          <button type="submit" className="flex w-full justify-center rounded-md bg-orange-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">Sign in</button>
+        <div className='flex justify-center w-full'>
+          <button type="submit" className="flex justify-center rounded-md bg-orange-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600 max-w-xl mt-10">Enviar</button>
         </div>
       </form>
       <Transition.Root show={open} as={Fragment}>
